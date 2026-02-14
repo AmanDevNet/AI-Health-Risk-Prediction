@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Result - HealthAI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">HealthAI</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/predict">Predict</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/dashboard">Dashboard</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5 text-center">
+        <h2>Health Risk Assessment</h2>
+
+        <div class="card p-5 mx-auto mt-4" style="max-width: 700px;">
+            <h4>Your Risk Level</h4>
+            <h1 class="display-3 {{ risk_class }}">{{ risk_level }}</h1>
+
+            <div class="mt-4">
+                <h5>Probability of High Risk / Disease</h5>
+                <div class="progress" style="height: 30px;">
+                    <div class="progress-bar {{ bg_class }}" role="progressbar" style="width: {{ probability }}%;"
+                        aria-valuenow="{{ probability }}" aria-valuemin="0" aria-valuemax="100">{{ probability }}%</div>
+                </div>
+            </div>
+
+            <hr class="my-4">
+
+            <div class="text-start">
+                <h5>Why this prediction?</h5>
+                <p>Top contributing factors:</p>
+                <ul>
+                    {% for feature, impact in explanation %}
+                    <li><strong>{{ feature }}:</strong> {{ impact }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <hr class="my-4">
+
+            <div class="text-start">
+                <h5>Health Suggestions</h5>
+                <ul>
+                    {% for suggestion in suggestions %}
+                    <li>{{ suggestion }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <a href="/predict" class="btn btn-outline-primary mt-4">Assess Again</a>
+        </div>
+    </div>
+</body>
+
+</html>
