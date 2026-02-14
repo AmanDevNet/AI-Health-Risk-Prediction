@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # AI Health Risk Prediction System
 
 ## 🚀 Project Goal
@@ -62,3 +63,6 @@ This project is a full-stack Machine Learning application that bridges the gap b
 
 ---
 **Made by Aman Sharma**
+=======
+# AI-Health-Risk-Prediction
+>>>>>>> 08f2f0bfd79c684c3ffb38a1ae8bbee5e71194f3
