@@ -45,7 +45,7 @@ This project is a full-stack Machine Learning application that bridges the gap b
 ## ⚙️ How to Run
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/Start-Aman/AI-Health-Risk-Prediction.git
+   git clone https://github.com/AmanDevNet/AI-Health-Risk-Prediction.git
    cd AI-Health-Risk-Prediction
    ```
 
